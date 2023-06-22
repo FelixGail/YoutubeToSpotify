@@ -52,7 +52,8 @@ class Youtube:
                 artist, title = get_artist_title(song)
                 self.songs.append(clean_song_info(Song(artist, title)))
             except:
-                print(f'Error parsing {song}')
+                print(f'Error parsing "{song}". Processing as title only.')
+                self.songs.append(clean_song_info(Song('', song)))
 
         return result
 
